@@ -76,6 +76,7 @@ void DesiredStateCommand<T>::convertToStateCommands() {
   data.stateDes(8) = 0.0;  // vertical linear velocity
   data.stateDes(0) = dt * data.stateDes(6);  // X position
   data.stateDes(1) = dt * data.stateDes(7);  // Y position
+  /// wsh_annotation: body height setting
   data.stateDes(2) = 0.26;  // Z position height
   data.stateDes(9) = 0.0;  // Roll rate
   data.stateDes(10) = 0.0;  // Pitch rate

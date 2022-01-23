@@ -164,7 +164,7 @@ void RobotRunner::run() {
 void RobotRunner::setupStep() {
   // Update the leg data
   if (robotType == RobotType::MINI_CHEETAH) {
-    _legController->updateData(spiData);
+    _legController->updateData(spiData); /// wsh_annotation: update legs states
   } else if (robotType == RobotType::CHEETAH_3) {
     _legController->updateData(tiBoardData);
   } else {
@@ -193,7 +193,7 @@ void RobotRunner::setupStep() {
     _cheaterModeEnabled = false;
   }
 
-  get_rc_control_settings(&rc_control);
+  get_rc_control_settings(&rc_control); /// wsh_annotation: update remote commands
 
   // todo safety checks, sanity checks, etc...
 }

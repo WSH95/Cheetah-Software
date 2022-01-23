@@ -39,7 +39,7 @@ class HardwareBridge {
         _interfaceLCM(getLcmUrl(255)),
         _visualizationLCM(getLcmUrl(255)) {
     _controller = robot_ctrl;
-    _userControlParameters = robot_ctrl->getUserControlParameters();
+    _userControlParameters = robot_ctrl->getUserControlParameters(); /// wsh_annotation: set '_userControlParameters' as pointer of 'MIT_Controller::MIT_UserParameters::userParameters'
         }
   void prefaultStack();
   void setupScheduler();

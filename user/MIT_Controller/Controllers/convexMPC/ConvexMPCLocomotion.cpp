@@ -175,7 +175,7 @@ void ConvexMPCLocomotion::run(ControlFSMData<float>& data) {
   }
 
   if(_body_height < 0.02) {
-    _body_height = 0.29;
+    _body_height = 0.29; /// wsh_annotation: body height setting
   }
 
   // integrate position setpoint

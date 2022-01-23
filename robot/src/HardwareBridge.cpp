@@ -239,7 +239,7 @@ void MiniCheetahHardwareBridge::run() {
     printf("[Hardware Bridge] Loading parameters from file...\n");
 
     try {
-      _robotParams.initializeFromYamlFile(THIS_COM "config/mini-cheetah-defaults.yaml");
+      _robotParams.initializeFromYamlFile(THIS_COM "config/mini-cheetah-defaults.yaml"); /// wsh_annotation: read '_robotRunner->controlParameters' from yaml file
     } catch(std::exception& e) {
       printf("Failed to initialize robot parameters from yaml file: %s\n", e.what());
       exit(1);
@@ -254,7 +254,7 @@ void MiniCheetahHardwareBridge::run() {
 
     if(_userControlParameters) {
       try {
-        _userControlParameters->initializeFromYamlFile(THIS_COM "config/mc-mit-ctrl-user-parameters.yaml");
+        _userControlParameters->initializeFromYamlFile(THIS_COM "config/mc-mit-ctrl-user-parameters.yaml"); /// wsh_annotation: read 'MIT_Controller::MIT_UserParameters::userParameters' from yaml file
       } catch(std::exception& e) {
         printf("Failed to initialize user parameters from yaml file: %s\n", e.what());
         exit(1);
@@ -325,6 +325,7 @@ void MiniCheetahHardwareBridge::run() {
   visualizationLCMTask.start();
 
   // rc controller
+  /// wsh_annotation: start periodic remote commands receiving task
   _port = init_sbus(false);  // Not Simulation
   PeriodicMemberFunction<HardwareBridge> sbusTask(
       &taskManager, .005, "rc_controller", &HardwareBridge::run_sbus, this);
@@ -343,6 +344,7 @@ void MiniCheetahHardwareBridge::run() {
 
 /*!
  * Receive RC with SBUS
+ * wsh_annotation: receive remote commands
  */
 void HardwareBridge::run_sbus() {
   if (_port > 0) {

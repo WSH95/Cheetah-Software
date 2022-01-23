@@ -31,6 +31,7 @@ EdgeTrigger<TaranisSwitchState> backflip_prep_edge_trigger(SWITCH_UP);
 EdgeTrigger<TaranisSwitchState> experiment_prep_edge_trigger(SWITCH_UP);
 TaranisSwitchState initial_mode_go_switch = SWITCH_DOWN;
 
+/// wsh_annotation: write remote commands into 'rc_control'
 void sbus_packet_complete() {
   Taranis_X7_data data;
   update_taranis_x7(&data);
