@@ -16,6 +16,13 @@ endif()
 set(CMAKE_AUTOMOC ON)
 # Create code from a list of Qt designer ui files
 set(CMAKE_AUTOUIC ON)
+
+# wsh_annotation: [CMAKE ERROR: Qt5Gamepad] set QT path
+set(Qt5Core_DIR /opt/Qt5.14.0/5.14.0/gcc_64/lib/cmake/Qt5Core)
+set(Qt5Widgets_DIR /opt/Qt5.14.0/5.14.0/gcc_64/lib/cmake/Qt5Widgets)
+set(Qt5Gui_DIR /opt/Qt5.14.0/5.14.0/gcc_64/lib/cmake/Qt5Gui)
+set(Qt5Gamepad_DIR /opt/Qt5.14.0/5.14.0/gcc_64/lib/cmake/Qt5Gamepad)
+
 find_package(Qt5Core CONFIG REQUIRED)
 find_package(Qt5Widgets CONFIG REQUIRED)
 get_target_property(QtCore_location Qt5::Core LOCATION)
