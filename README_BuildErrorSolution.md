@@ -4,7 +4,7 @@
 - If clone googletest from github failed, add `github.com` and `github.global.ssl.fastly.net` into `/etc/hosts`.
 - If googletest still can not be cloned, add `xx.xx.xx.xx github.com git` below the localhost where `xx.xx.xx.xx` is the local IP.
 
-**2.** `/scripts/find_qt_path.sh`. &ensp;Replace `~/QT/` to the correct path.
+**2.** `/scripts/find_qt_path.sh`. &ensp;Replace `~/QT/` with the correct path.
 
 **3.** `/sim/CMakeLists.txt`. &ensp;Set path of `Qt5Core_DIR` `Qt5Widgets_DIR` `Qt5Gui_DIR` `Qt5Gamepad_DIR`.
 - ```

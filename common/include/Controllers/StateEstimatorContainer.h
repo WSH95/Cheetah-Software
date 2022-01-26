@@ -25,7 +25,7 @@ struct StateEstimate {
   Vec4<T> contactEstimate;
   Vec3<T> position;
   Vec3<T> vBody;
-  Quat<T> orientation;
+  Quat<T> orientation; /// wsh_annotation: [w, x, y, z], w^2 + x^2 + y^2 + z^2 = 1
   Vec3<T> omegaBody;
   RotMat<T> rBody;
   Vec3<T> rpy;

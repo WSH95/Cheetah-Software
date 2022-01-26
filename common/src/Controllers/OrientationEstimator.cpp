@@ -55,18 +55,18 @@ void VectorNavOrientationEstimator<T>::run() {
     Vec3<T> rpy_ini = ori::quatToRPY(this->_stateEstimatorData.result->orientation);
     rpy_ini[0] = 0;
     rpy_ini[1] = 0;
-    _ori_ini_inv = rpyToQuat(-rpy_ini);
+    _ori_ini_inv = rpyToQuat(-rpy_ini); /// wsh_annotation: IMU frame relative to World frame (World frame: the robot startup frame)
     _b_first_visit = false;
   }
   this->_stateEstimatorData.result->orientation = 
-    ori::quatProduct(_ori_ini_inv, this->_stateEstimatorData.result->orientation);
+    ori::quatProduct(_ori_ini_inv, this->_stateEstimatorData.result->orientation); /// wsh_annotation: transfer from IMU frame to World frame.
 
   this->_stateEstimatorData.result->rpy =
       ori::quatToRPY(this->_stateEstimatorData.result->orientation);
 
 
   this->_stateEstimatorData.result->rBody = ori::quaternionToRotationMatrix(
-      this->_stateEstimatorData.result->orientation);
+      this->_stateEstimatorData.result->orientation); /// wsh_annotation: transfer from World frame into Body frame.
 
   this->_stateEstimatorData.result->omegaBody =
       this->_stateEstimatorData.vectorNavData->gyro.template cast<T>();
